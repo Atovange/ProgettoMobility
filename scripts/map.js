@@ -5,7 +5,7 @@ var longitude = 13.361262;
 
 var myPos;
 
-const image = "https://cdn.discordapp.com/attachments/413401624741019657/846068092886188032/IconQui.png";
+const image = "https://cdn.discordapp.com/attachments/794137631650480128/846308571180040192/sonoQui2.png";
 var marker;
 
 var options = { // oggetto opzionale PositionOptions 
