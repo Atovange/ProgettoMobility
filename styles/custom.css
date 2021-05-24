@@ -13,10 +13,11 @@ html, body {
     width: 300px;
 }
 
-.img-veicolo:hover {
-    filter: invert(37%) sepia(41%) saturate(7481%) hue-rotate(208deg) brightness(60%) contrast(80%);
+@media (hover: hover) {
+    .img-veicolo:not(.img-veicolo-selected):hover {
+        filter: invert(37%) sepia(41%) saturate(7481%) hue-rotate(208deg) brightness(60%) contrast(80%);
+    }
 }
-
 .img-veicolo-selected {
     filter: invert(37%) sepia(41%) saturate(7481%) hue-rotate(208deg) brightness(98%) contrast(103%);
 }
