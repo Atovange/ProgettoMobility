@@ -14,9 +14,9 @@ var options = { // oggetto opzionale PositionOptions
     maximumAge: 0
 };
 
-navigator.geolocation.getCurrentPosition(successLocate, null, options);
+navigator.geolocation.getCurrentPosition(firstLocate, null, options);
 
-function successLocate(position) {
+function firstLocate(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
     myPos = new google.maps.LatLng(latitude, longitude);
@@ -49,9 +49,24 @@ function panToMe() {
     map.panTo(marker.getPosition());
 }
 
-// TODO CHE SI SPOSTA
-/*
+function locate(position) {
+  latitude = position.coords.latitude;
+  longitude = position.coords.longitude;
+  myPos = new google.maps.LatLng(latitude, longitude);
+
+  if(marker) {
+    marker.setPosition(myPos);
+  } else {
+    marker = new google.maps.Marker({
+        position: myPos,
+        title:"Tu Sei Qui!",
+        icon: image,
+    });
+
+    marker.setMap(map);
+  }
+}
+
 var intervalId = window.setInterval(function(){
-  // QUI
+  navigator.geolocation.getCurrentPosition(locate, null, options);
 }, 5000);
-*/
