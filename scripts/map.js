@@ -1,10 +1,11 @@
 let map;
 
-var latitude = 0;
-var longitude = 0;
+var latitude = 38.115658;
+var longitude = 13.361262;
 
-var center;
+var myPos;
 
+const image = "https://cdn.discordapp.com/attachments/413401624741019657/846068092886188032/IconQui.png";
 var marker;
 
 var options = { // oggetto opzionale PositionOptions 
@@ -21,16 +22,17 @@ function successLocate(position) {
     myPos = new google.maps.LatLng(latitude, longitude);
     map.panTo(myPos);
 
-    const image = "https://cdn.discordapp.com/attachments/413401624741019657/846068092886188032/IconQui.png";
+    if(marker) {
+      marker.setPosition(myPos);
+    } else {
+      marker = new google.maps.Marker({
+          position: myPos,
+          title:"Tu Sei Qui!",
+          icon: image,
+      });
 
-    marker = new google.maps.Marker({
-        position: myPos,
-        title:"Tu Sei Qui!",
-        icon: image,
-    });
-
-    marker.setMap(map);
-
+      marker.setMap(map);
+    }
 }
 
 function initMap() {
@@ -40,6 +42,11 @@ function initMap() {
     mapId: '179baafa71400cec',
     disableDefaultUI: true,
   });
+}
+
+function panToMe() {
+  if(marker)
+    map.panTo(marker.getPosition());
 }
 
 // TODO CHE SI SPOSTA
