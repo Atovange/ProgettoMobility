@@ -14,7 +14,9 @@ var options = { // oggetto opzionale PositionOptions
     maximumAge: 0
 };
 
-navigator.geolocation.getCurrentPosition(firstLocate, null, options);
+function initialPos() {
+  navigator.geolocation.getCurrentPosition(firstLocate, null, options);
+}
 
 function firstLocate(position) {
     latitude = position.coords.latitude;

@@ -12,3 +12,11 @@ html, body {
 .offcanvas-start {
     width: 300px;
 }
+
+.img-veicolo:hover {
+    filter: invert(37%) sepia(41%) saturate(7481%) hue-rotate(208deg) brightness(60%) contrast(80%);
+}
+
+.img-veicolo-selected {
+    filter: invert(37%) sepia(41%) saturate(7481%) hue-rotate(208deg) brightness(98%) contrast(103%);
+}
